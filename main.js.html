@@ -1,0 +1,10 @@
+<script>
+    function fileSelected(e) {
+      console.log(e);
+    }
+    
+    function fileUploaded(status) {
+        document.getElementById('myForm').style.display = 'none';
+        document.getElementById('output').innerHTML = status;
+    }
+</script>
