@@ -1,0 +1,99 @@
+<html>
+<head> 
+    <title>檔案上傳程式</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <?!= include('style.css'); ?>
+</head>
+<body>
+
+<div class="container">
+        <div class="row">
+            <div class="col-8 mx-auto box">
+                <h3 class="mb-5 text-center">內部檔案上傳程式</h3>
+
+<form id="myForm">
+
+<div class="form-group">
+    <label for="myName">出題者姓名</label>
+      <input type="text" class="form-control" name="myName" placeholder="請輸入您的姓名" tabindex="1" id="myName" required>
+</div>
+    
+    <div class="form-group">
+    <label for="sub">科目</label>
+                        <select class="form-control" name="sub" id= "sub" required>
+                            <option value="國語">國語</option>
+                            <option value="數學">數學</option>
+                            <option value="自然">自然</option>
+                            <option value="社會">社會</option>
+                            <option value="英語">英語</option>
+                            <option value="生活">生活</option>
+                        </select>
+    </div>
+    
+    <div class="form-group">
+                        <label for="dept">年級</label>
+                        <select class="form-control" name="dept" id="dept" required>
+                            <option value="一年級">一年級</option>
+                            <option value="二年級">二年級</option>
+                            <option value="三年級">三年級</option>
+                            <option value="四年級">四年級</option>
+                            <option value="五年級">五年級</option>
+                            <option value="六年級">六年級</option>
+                        </select>
+    </div>
+    
+    <div class="form-group">
+                        <label for="semester">類別</label>
+                        <select class="form-control" name="semester" id="semester" required>
+                            <option value="期中">期中</option>
+                            <option value="期末">期末</option>
+                        </select>
+    </div>
+    
+    <div class="form-group">
+    <label for="email">電子郵件</label>
+      <input type="email" class="form-control" name="email" placeholder="請輸入您的電子郵件" tabindex="3" id="email" required>
+    </div>
+    
+    <div class="form-group pt-3 pb-3">
+      <input type="file" class="form-control-file" name="myFile1" id="myfile1" 
+          accept=".jpg,.jpeg,.png,.docx,.doc,.pdf" onchange="fileSelected(this)">
+    </div>
+    <div class="form-group pt-3 pb-3">
+      <input type="file" class="form-control-file" name="myFile2" id="myfile2" 
+          accept=".jpg,.jpeg,.png,.docx,.doc,.pdf" onchange="fileSelected(this)">
+    </div>
+    <input type="submit" class="btn btn-primary btn-lg btn-block pt-2 pb-2" value="上傳檔案[檔名範例:六上期中國語.docx or pdf]" 
+           onclick="this.value='檔案上傳中..';
+                    google.script.run.withSuccessHandler(fileUploaded)
+                    .uploadFiles(this.parentNode);
+                    return false;">
+                    
+</form>
+
+<div id="output"></div>
+
+</div><!--end of box-->
+</div><!--end of row-->
+</div><!--end of container-->
+
+</body>
+<?!= include('main.js'); ?>
+
+</html>
+<!--
+<script>
+    function fileSelected(e) {
+      console.log(e);
+    }
+    
+    function fileUploaded(status) {
+        document.getElementById('myForm').style.display = 'none';
+        document.getElementById('output').innerHTML = status;
+    }
+</script>
+
+<style>
+ input { display:block; margin: 20px; }
+</style>
+-->
